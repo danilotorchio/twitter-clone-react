@@ -15,7 +15,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center h-100 gap-3">
+    <div className="d-flex flex-column justify-content-center align-items-center h-100 gap-3 animate__animated animate__fadeIn">
       <form className="d-flex flex-column gap-2" style={{ minWidth: 450 }}>
         <input type="email" className="form-control" placeholder="E-mail" />
         <input type="password" className="form-control" placeholder="Senha" />
