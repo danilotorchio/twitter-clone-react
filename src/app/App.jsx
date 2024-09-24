@@ -1,45 +1,21 @@
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { RouterProvider } from 'react-router-dom';
 
-import { Header } from "./layout/Header";
-import { Content } from "./layout/Content";
-
-// pages
-import { HomePage } from "./pages/Home";
-import { LoginPage } from "./pages/Login";
-import { RegisterPage } from "./pages/Register";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
-  },
-  {
-    path: "/register",
-    element: <RegisterPage />,
-  },
-  {
-    path: "*",
-    element: <Navigate to="/" />,
-  },
-]);
+import { router } from './routes';
+import { AuthContext } from './utils/AuthContext';
 
 const App = () => {
-  return (
-    <>
-      <Header />
+  const [authState, setAuthState] = useState(false);
 
-      <Content>
-        <RouterProvider router={router} />
-      </Content>
-    </>
+  useEffect(() => {
+    const authState = localStorage.getItem('auth') ?? false;
+    setAuthState(authState === 'true');
+  });
+
+  return (
+    <AuthContext.Provider value={[authState, setAuthState]}>
+      <RouterProvider router={router} />
+    </AuthContext.Provider>
   );
 };
 
