@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { UserAvatar } from './components/UserAvatar';
+import { UserAvatar } from '../components/UserAvatar';
 import { AuthContext } from '../utils/AuthContext';
 
 const Header = () => {
@@ -9,20 +9,15 @@ const Header = () => {
 
   return (
     <nav className="navbar fixed-top navbar-expand-lg bg-primary shadow">
-      <div className="container d-flex">
-        <div className="flex-grow-1 d-flex justify-content-center">
-          <Link
-            to={'/'}
-            className="fs-3 fw-medium text-white text-uppercase text-decoration-none"
-          >
-            Twitter Clone React
-          </Link>
-        </div>
-
-        <div
-          className="d-flex justify-content-center align-items-center"
-          style={{ minWidth: '150px', maxWidth: '150px' }}
+      <div className="container d-flex position-relative px-2">
+        <Link
+          to={'/'}
+          className="fs-3 fw-medium text-white text-uppercase text-decoration-none w-100 header-text"
         >
+          Twitter Clone React
+        </Link>
+
+        <div className="position-absolute end-0 pe-2">
           {authState ? (
             <UserAvatar />
           ) : (

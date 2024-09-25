@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { AuthContext } from '../../utils/AuthContext';
+import { AuthContext } from '../utils/AuthContext';
 
-const UserAvatar = () => {
+const UserAvatar = ({ hashEmail }) => {
   const [_, setAuthState] = useContext(AuthContext);
 
   const handleLogout = () => {
@@ -23,7 +23,9 @@ const UserAvatar = () => {
           className="img-fluid rounded"
           height={40}
           width={40}
-          src="https://gravatar.com/avatar/3baa9c554cbe7979a888154820587a70?s=75&d=mp"
+          src={`https://gravatar.com/avatar/${
+            hashEmail ?? '3baa9c554cbe7979a888154820587a70'
+          }?s=75&d=mp`}
         />
       </button>
       <ul className="dropdown-menu dropdown-menu-end">

@@ -15,10 +15,27 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center h-100 gap-3 animate__animated animate__fadeIn">
+    <div className="flex-grow-1 d-flex flex-column justify-content-center align-items-center gap-3 animate__animated animate__fadeIn">
       <form className="d-flex flex-column gap-2" style={{ minWidth: 450 }}>
-        <input type="email" className="form-control" placeholder="E-mail" />
-        <input type="password" className="form-control" placeholder="Senha" />
+        <div className="form-floating">
+          <input
+            id="email"
+            type="email"
+            className="form-control"
+            placeholder="E-mail"
+          />
+          <label htmlFor="email">E-mail</label>
+        </div>
+
+        <div className="form-floating">
+          <input
+            id="password"
+            type="password"
+            className="form-control"
+            placeholder="Senha"
+          />
+          <label htmlFor="passowrd">Senha</label>
+        </div>
 
         <button
           type="button"
